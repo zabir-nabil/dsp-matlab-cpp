@@ -1,5 +1,7 @@
 function A = idctver2(B)
    % Reference : http://matlab.izmiran.ru/help/toolbox/images/transfo5.html
+   % Author : Zabir Al Nazi
+   % Email : zabiralnazi@codeassign.com
    [M, N] = size(B);
    B = double(B);
    A = zeros(M,N);

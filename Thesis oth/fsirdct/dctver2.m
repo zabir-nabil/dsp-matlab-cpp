@@ -1,5 +1,7 @@
 function B = dctver2(A)
    % Reference : http://matlab.izmiran.ru/help/toolbox/images/transfo5.html
+   % Author : Zabir Al Nazi
+   % Email : zabiralnazi@codeassign.com
    [M, N, z] = size(A);
    if(z ~= 1)
        disp('Implemented for single channel image\n');
