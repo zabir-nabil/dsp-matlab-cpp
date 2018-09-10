@@ -1,4 +1,4 @@
-% Data source: 
+% Data source: https://github.com/zabir-nabil/dsp-matlab-cpp/tree/master/Thesis%20oth/bme_lab_1
 % author: zabiralnazi@yahoo.com
 % eeg band
 % theta: 4–7
