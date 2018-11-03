@@ -1,13 +1,10 @@
 % Dummy Power Transmission Signal X(t)
 
-X = randn(100,40); % 100 signal sample points, 500 total samples
-y = [ones(1,4), 2*ones(1,4),...
-    3*ones(1,4), 4*ones(1,4),...
-    5*ones(1,4), 6*ones(1,4),...
-    7*ones(1,4), 8*ones(1,4),...
-    9*ones(1,4), 10*ones(1,4)];
+read_file(); % 100 signal sample points, 500 total samples
+
+
 y = y';
-[sig_len, samp_n] = size(X);
+[samp_n, sig_len] = size(X);
 features = zeros(samp_n,9);
 for i = 1:samp_n
 disp(i);
