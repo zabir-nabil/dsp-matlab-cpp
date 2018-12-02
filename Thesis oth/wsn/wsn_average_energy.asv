@@ -1,0 +1,9 @@
+% row -> hops, columns -> distance
+dis = [50,45,55,52;100,95,97,105;150,145,155,152];
+num_hops = 3;
+num_nodes = 4;
+trans_energy = zeros(3,4);
+rec_energy = zeros(3,4
+for hops = 1:num_hops
+    for nodes = 1:num_nodes
+        
