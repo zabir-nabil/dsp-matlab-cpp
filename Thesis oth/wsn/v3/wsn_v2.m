@@ -1,12 +1,12 @@
 % row -> hops, columns -> distance
-dis = [10,20,30,40];
+dis = [10,30,50,70];
 num_hops = 4;
 num_nodes = 4;
 
 Eelec = 50*1e-9;
 Eda = 0; %5*1e-9;
 Eamp = 100*1e-12;
-k_all = 25*8;
+k = 25*8;
 
 trans_energy = zeros(3,4);
 rec_energy = zeros(3,4);
@@ -20,6 +20,7 @@ tot_energy_k = zeros(4,1);
 tot_energy_fh_k = zeros(4,1);
 
 for ck = 1:4
+    k = 25*8;
     d = dis(ck);
     for hops = num_hops:-1:2
         for nodes = 1:num_nodes
