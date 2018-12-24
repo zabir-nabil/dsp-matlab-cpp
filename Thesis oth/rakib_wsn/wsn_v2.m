@@ -24,10 +24,26 @@ for ck = 1:4
     d = dis(ck);
     for hops = num_hops:-1:2
         for nodes = 1:num_nodes
+            if hops == 2
+            if nodes > 4    
+            trans_energy(hops,nodes) = 0; % Etx(k,d)
+            rec_energy(hops,nodes) = 0;
+            tot_energy(hops, nodes) = 0;
+            toenk(ck,hops,nodes) = 0;
+            end
+            if nodes <= 4    
             trans_energy(hops,nodes) = k*(Eelec+Eda+Eamp*d^2); % Etx(k,d)
             rec_energy(hops,nodes) = Eelec*k;
             tot_energy(hops, nodes) = trans_energy(hops,nodes) + rec_energy(hops,nodes);
             toenk(ck,hops,nodes) = tot_energy(hops, nodes);
+            end
+            end
+            if hops ~= 2
+            trans_energy(hops,nodes) = k*(Eelec+Eda+Eamp*d^2); % Etx(k,d)
+            rec_energy(hops,nodes) = Eelec*k;
+            tot_energy(hops, nodes) = trans_energy(hops,nodes) + rec_energy(hops,nodes);
+            toenk(ck,hops,nodes) = tot_energy(hops, nodes);
+            end
         end
         k = k*(5-hops);
     end

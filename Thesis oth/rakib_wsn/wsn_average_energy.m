@@ -27,12 +27,21 @@ for ck = 1:4
     for hops = num_hops:-1:2
         for nodes = 1:num_nodes
             d = dis(hops,nodes) - dis(hops-1,nodes);
+            if d ~=0
             trans_energy(hops,nodes) = k*(Eelec+Eda+Eamp*d^2); % Etx(k,d)
             rec_energy(hops,nodes) = Eelec*k;
             tot_energy(hops, nodes) = trans_energy(hops,nodes) + rec_energy(hops,nodes);
             toenk(ck,hops,nodes) = tot_energy(hops, nodes);
+        
+            end
+            if d == 0
+            trans_energy(hops,nodes) = 0; % Etx(k,d)
+            rec_energy(hops,nodes) = 0;
+            tot_energy(hops, nodes) = 0;
+            toenk(ck,hops,nodes) = 0;
+            end
         end
-        k = k*(9-hops);
+        k = k*(5-hops);
     end
 average_energy_k(ck) = sum(sum(tot_energy))/((num_hops-1)*num_nodes);
 average_energy_first_hop_k(ck) = sum(sum(tot_energy(2,:)))/(3*num_nodes);
